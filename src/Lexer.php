@@ -46,7 +46,7 @@ class Lexer
                         $this->pushToken(Token::TYPE_SKIP_SYNTAX, $index-1, 1, null);
                         // find the end of the quoted literal text
                         while (true) {
-                            if (0 <= $index = \mb_strpos('\'', $index + 1)) {
+                            if (0 <= $index = \mb_strpos($this->message, '\'', $index + 1)) {
                                 if ('\'' === \mb_substr($this->message, $index + 1, 1)) {
                                     // double apostrophe inside quoted literal text
                                     // still encodes a single apostrophe, skip the second one
